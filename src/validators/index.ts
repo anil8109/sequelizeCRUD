@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { AnyZodObject } from 'zod';
 import logger from '../config/logger.config';
+import { BadRequestError } from '../utils/errors/app.error';
 
 export const validateRequestBody =(schema: AnyZodObject ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -15,11 +16,12 @@ export const validateRequestBody =(schema: AnyZodObject ) => {
             next();
         } catch (error) {
             // return res.status(400); // res = function (res) => { res.setStatus(400); return res; } this is same thing written
-            res.status(400).json({
-                message: 'Invalid Request Body',
-                success: false,
-                error: error
-            })
+            // res.status(400).json({
+            //     message: 'Invalid Request Body',
+            //     success: false,
+            //     error: error
+            // })
+            throw new BadRequestError(`Invalid Request Body`);
         }
     }
 }

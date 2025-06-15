@@ -4,6 +4,8 @@ import { CreateHotelDTO } from "../dto/hotel.dto";
 import { NotFoundError } from "../utils/errors/app.error";
 
 export async function createHotel(hotelData: CreateHotelDTO) {
+    console.log('About to call Hotel.create');
+    
     const hotel = await Hotel.create({
         name: hotelData.name,
         address: hotelData.address,
@@ -11,6 +13,8 @@ export async function createHotel(hotelData: CreateHotelDTO) {
         rating: hotelData.rating,
         ratingCount: hotelData.ratingCount,
     });
+    console.log('called Hotel.create');
+    
 
     logger.info(`Hotel Created ${hotel.id}`);
     return hotel;

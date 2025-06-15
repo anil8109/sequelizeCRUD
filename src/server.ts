@@ -25,18 +25,6 @@ app.listen(serverConfig.PORT, async () => {
     try {
         await sequelize.authenticate();
         logger.info('DB Connection Success');
-
-        // const hotel = await Hotel.create({
-        //     name: 'Hotel Newyork',
-        //     address: 'somewhere',
-        //     location: 'Los Angeles',
-        //     rating: 4.5,
-        //     ratingCount: 100
-        // })
-        // logger.info('Hotel creared', hotel.toJSON());
-
-        // const hotels = await Hotel.findAll();
-        // logger.info('Hotelks', hotels);
     } catch (error) {
         logger.error('Something went wrong with DB connection');
     }

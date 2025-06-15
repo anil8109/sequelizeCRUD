@@ -10,5 +10,4 @@ export const attachCorrelationIdMiddleware = (req: Request, res: Response, next:
     }, () => {
         next();
     })
-    next();
 }

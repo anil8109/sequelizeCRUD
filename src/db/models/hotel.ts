@@ -32,12 +32,12 @@ Hotel.init({
         },
         rating: {
           type: "FLOAT",
-          allowNull: false,
+          allowNull: true,
           defaultValue: null,
         },
         ratingCount: {
           type: "INTEGER",
-          allowNull: false,
+          allowNull: true,
           defaultValue: null,
         },
         createdAt: {
